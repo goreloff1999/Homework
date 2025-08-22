@@ -1,19 +1,20 @@
 :root {
     --general-text: #312C27;
-    --general-bg: #fff9f4;
-    --accent-color: #ffa55c;
-    --accent-bg: #ffe0cb;
-    --accent-text: #1f1711;
+    --accent-text: #1F1711;
+    --general-bg: #FFF9F4;
+    --accent-bg: #FFE0CB;
+    --accent-color: #FFA55C;
+    --accent-color-2: #CEAAD0;
+    --input-color: #AC907A;
     --transition: all .4s;
-    --border-radius: 20px
+    --border-radius: 20px;
 }
 
 .body {
-
-    background: var(--general-bg);
+    font-family: "Montserrat", "Arial", sans-serif;
     line-height: 1.5;
     color: var(--general-text);
-    font-family: "Montserrat", "Arial", sans-serif;
+    background: var(--general-bg);
 }
 
 .body--opened-menu {
@@ -40,16 +41,10 @@
     padding: 140px 0;
 }
 
-.main__program {
-    padding-bottom: 145px;
-}
-
-.main_gallery {
-    padding-bottom: 140px;
-}
-
+.main__program,
+.main__gallery,
 .main__testimonials {
-    margin-bottom: 140px;
+    padding-bottom: 145px;
 }
 
 .container {
@@ -63,7 +58,7 @@
     font-family: 'Gabriola';
     font-size: 74px;
     line-height: 0.82;
-
+    color: var(--accent-text);
 }
 
 .button {
@@ -83,7 +78,7 @@
 }
 
 .button:hover {
-    background: #ff9138;
+    background: #FF9138;
 }
 
 .modal {
@@ -105,14 +100,13 @@
 .body--opened-modal .modal {
     opacity: 1;
     visibility: visible;
-
 }
 
 .modal__window {
+    position: relative;
     background: var(--general-bg);
     border-radius: var(--border-radius);
     padding: 0 60px 60px;
-    position: relative;
     max-width: 428px;
 }
 
@@ -122,13 +116,14 @@
     right: 20px;
 }
 
-.modal__cancel path {
+.modal__cancel path,
+.modal__cancel rect {
     transition: var(--transition);
 }
 
 .modal__cancel:hover path,
 .modal__cancel:hover rect {
-    stroke: #AC907A;
+    stroke: var(--input-color);
 }
 
 .modal__img {
@@ -137,10 +132,10 @@
 }
 
 .modal__title {
-    color: var(--accent-text-);
-    font-family: Gabriola;
+    font-family: 'Gabriola';
     font-size: 42px;
     line-height: .9;
+    color: var(--accent-text);
     margin-bottom: 10px;
 }
 
@@ -157,7 +152,6 @@
 .field {
     position: relative;
     display: block;
-
 }
 
 .field span {
@@ -165,7 +159,7 @@
     top: 12px;
     left: 28px;
     font-size: 11px;
-    color: #ac907a;
+    color: var(--input-color);
 
     opacity: 0;
     visibility: hidden;
@@ -176,7 +170,7 @@
     display: block;
     width: 100%;
     background: #00000000;
-    border: 1px solid #ac907a;
+    border: 1px solid var(--input-color);
     border-radius: 100px;
     padding: 19px 42px 19px 28px;
     font-size: 16px;
@@ -188,12 +182,12 @@
 }
 
 .field__input::placeholder {
-    color: #ac907a;
+    color: var(--input-color);
     transition: var(--transition);
 }
 
 .field__input:hover::placeholder {
-    color: var(--accent-color)
+    color: var(--accent-color);
 }
 
 .field__input:focus {

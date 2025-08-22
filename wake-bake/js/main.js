@@ -1,147 +1,123 @@
+(function () {
 
+    // Бургер
 
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', burgerInit)
 
-    /* ========== BURGER MENU ========== */
-    (function () {
-        const burgerIcon = document.querySelector('.burger-icon');
-        const navLinks = document.querySelectorAll('.nav__link');
+    function burgerInit(e) {
 
-        if (burgerIcon) {
-            burgerIcon.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.body.classList.toggle('body--opened-menu');
-            });
-        }
+        const burgerIcon = e.target.closest('.burger-icon')
+        const burgerNavLink = e.target.closest('.nav__link')
 
-        if (navLinks.length) {
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    document.body.classList.remove('body--opened-menu');
-                });
-            });
-        }
-    })();
+        if (!burgerIcon && !burgerNavLink) return
+        if (document.documentElement.clientWidth > 900) return
 
-
-    /* ========== MODAL  ========== */
-    (function () {
-        const giftBtns = document.querySelectorAll('.about__img-button');
-        const modal = document.querySelector('.modal');
-        if (!modal || giftBtns.length === 0) return;
-
-        const closeBtn = modal.querySelector('.modal__cancel');
-
-        function openModal() {
-            document.body.classList.add('body--opened-modal');
-            const input = modal.querySelector('input, textarea, button, [tabindex]');
-            if (input) input.focus();
-        }
-
-        function closeModal() {
-            document.body.classList.remove('body--opened-modal');
-        }
-
-        giftBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal();
-            });
-        });
-
-        if (closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                closeModal();
-            });
-        }
-
-        // клик вне окна
-        modal.addEventListener('click', (e) => {
-            if (!e.target.closest('.modal__window')) {
-                closeModal();
-            }
-        });
-
-        // Esc
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.body.classList.contains('body--opened-modal')) {
-                closeModal();
-            }
-        });
-    })();
-
-});
-
-
-/* ========== tab  ========== */
-
-const tabControls = document.querySelector('.tab-controls')
-
-tabControls.addEventListener('click', toggleTab)
-
-function toggleTab(e) {
-
-    const tabControl = e.target.closest('.tab-controls__link')
-
-    if (!tabControl) return
-    e.preventDefault()
-    if (tabControl.classList.contains('tab-controls__link--active')) return
-
-    const tabContentID = tabControl.getAttribute('href')
-    const tabContent = document.querySelector(tabContentID)
-    const activeControl = document.querySelector('.tab-controls__link--active')
-    const activeContent = document.querySelector('.tab-content--show')
-
-    activeControl.classList.remove('tab-controls__link--active')
-    activeContent.classList.remove('tab-content--show')
-
-    tabControl.classList.add('tab-controls__link--active')
-    tabContent.classList.add('tab-content--show')
-}
-
-/* ========== accordeon  ========== */
-
-const accordionLists = document.querySelectorAll('.accordion-list');
-
-accordionLists.forEach(accordionList => {
-    accordionList.addEventListener('click', (e) => {
-        const accordionControl = e.target.closest('.accordion-list__control');
-        if (!accordionControl) return;
-
-        const accordionItem = accordionControl.parentElement;
-        const accordionContent = accordionControl.nextElementSibling;
-
-        // Закрываем все открытые аккордеоны в текущем списке
-        const openedItems = accordionList.querySelectorAll('.accordion-list__item--opened');
-        openedItems.forEach(item => {
-            if (item !== accordionItem) {
-                item.classList.remove('accordion-list__item--opened');
-                item.querySelector('.accordion-list__content').style.maxHeight = null;
-            }
-        });
-
-        // Переключаем текущий аккордеон
-        accordionItem.classList.toggle('accordion-list__item--opened');
-
-        if (accordionItem.classList.contains('accordion-list__item--opened')) {
-            accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+        if (!document.body.classList.contains('body--opened-menu')) {
+            document.body.classList.add('body--opened-menu')
         } else {
-            accordionContent.style.maxHeight = null;
+            document.body.classList.remove('body--opened-menu')
         }
+
+    }
+
+    // Модалка
+
+    const modal = document.querySelector('.modal')
+    const modalButton = document.querySelector('.about__img-button')
+
+    modalButton.addEventListener('click', openModal)
+    modal.addEventListener('click', closeModal)
+
+    function openModal(e) {
+        e.preventDefault()
+        document.body.classList.toggle('body--opened-modal')
+    }
+
+    function closeModal(e) {
+        e.preventDefault()
+
+        const target = e.target
+
+        if (target.closest('.modal__cancel') || target.classList.contains('modal')) {
+            document.body.classList.remove('body--opened-modal')
+        }
+
+    }
+
+    // Табы
+
+    const tabControls = document.querySelector('.tab-conrols')
+
+    tabControls.addEventListener('click', toggleTab)
+
+    function toggleTab(e) {
+
+        const tabControl = e.target.closest('.tab-conrols__link')
+
+        if (!tabControl) return
+        e.preventDefault()
+        if (tabControl.classList.contains('tab-conrols__link--active')) return
+
+        const tabContentID = tabControl.getAttribute('href')
+        const tabContent = document.querySelector(tabContentID)
+        const activeControl = document.querySelector('.tab-conrols__link--active')
+        const activeContent = document.querySelector('.tab-content--show')
+
+        if (activeControl) {
+            activeControl.classList.remove('tab-conrols__link--active')
+        }
+        if (activeContent) {
+            activeContent.classList.remove('tab-content--show')
+        }
+
+        tabControl.classList.add('tab-conrols__link--active')
+        tabContent.classList.add('tab-content--show')
+
+    }
+
+    // Аккордеон
+
+    const accordionLists = document.querySelectorAll('.accordion-list');
+
+    accordionLists.forEach(el => {
+
+        el.addEventListener('click', (e) => {
+
+            const accordionList = e.currentTarget
+            const accordionOpenedItem = accordionList.querySelector('.accordion-list__item--opened')
+            const accordionOpenedContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content')
+
+            const accordionControl = e.target.closest('.accordion-list__control');
+            if (!accordionControl) return
+            const accordionItem = accordionControl.parentElement;
+            const accordionContent = accordionControl.nextElementSibling;
+
+            if (accordionOpenedItem && accordionItem != accordionOpenedItem) {
+                accordionOpenedItem.classList.remove('accordion-list__item--opened');
+                accordionOpenedContent.style.maxHeight = null;
+            }
+            accordionItem.classList.toggle('accordion-list__item--opened');
+
+            if (accordionItem.classList.contains('accordion-list__item--opened')) {
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            } else {
+                accordionContent.style.maxHeight = null;
+            }
+
+        });
+
     });
 
+    // Слайдер-галерея
 
-    // Sliders
     new Swiper('.gallery__slider', {
 
         spaceBetween: 15,
         slidesPerView: 1.5,
 
-
         pagination: {
             el: '.gallery__pagination',
-            type: 'fraction'
+            type: 'fraction',
         },
 
         navigation: {
@@ -149,11 +125,8 @@ accordionLists.forEach(accordionList => {
             prevEl: '.gallery__prev',
         },
 
-
         breakpoints: {
-
             601: {
-                spaceBetween: 32,
                 slidesPerView: 3,
             },
             801: {
@@ -163,19 +136,15 @@ accordionLists.forEach(accordionList => {
                 slidesPerView: 4,
             }
         }
-    })
+    });
 
-
-    // Sliders review
-
-
+    // Слайдер-отзывы
 
     new Swiper('.testimonials__slider', {
 
         spaceBetween: 0,
         slidesPerView: 1,
         centeredSlides: true,
-
 
         navigation: {
             nextEl: '.testimonials__next',
@@ -186,25 +155,21 @@ accordionLists.forEach(accordionList => {
             el: '.swiper-scrollbar',
             draggable: true,
         },
-                breakpoints: {
 
-
+        breakpoints: {
             901: {
                 slidesPerView: 1.5,
             },
             1201: {
                 slidesPerView: 2.1,
-            },
-
+            }
         }
-    
+    });
 
-    })
-});
+    // Маска для телефона
 
+    const telInputs = document.querySelectorAll('input[type="tel"]')
+    const im = new Inputmask('+7 (999) 999-99-99')
+    im.mask(telInputs)
 
-
-
-
-
-
+})()
