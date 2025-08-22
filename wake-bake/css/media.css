@@ -147,6 +147,11 @@
 
     /*============*/
 
+    .testimonials__scrollbar.swiper-scrollbar {
+        width: 80%;
+        margin: 0 auto;
+    }
+
 }
 
 /*=============================================*/
@@ -208,6 +213,17 @@
     .accordion-content__text {
         max-width: none;
     }
+
+    /*============*/
+
+    .testimonials__inner {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .testimonials__nav {
+        align-self: end;
+    }
 }
 
 /*=============================================*/
@@ -215,6 +231,12 @@
 
     .main__about {
         padding: 60px 0 80px;
+    }
+
+    .main__testimonials,
+    .main__gallery,
+    .main__program {
+        padding: 0 0 80px;
     }
 
     .title {
@@ -299,8 +321,21 @@
     .gallery__content {
         flex-direction: column;
     }
-    .gallery__inner{
+
+    .gallery__inner {
         margin-bottom: 20px;
+    }
+
+    /*=========*/
+    .testimonials__inner {
+        margin-bottom: 20px;
+    }
+
+    .testimonials__slide {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
     }
 }
 
@@ -338,6 +373,12 @@
 
     .accordion-content__item {
         margin-bottom: 10px;
+    }
+
+    /*=========*/
+    .testimonials__slide {
+        padding: 30px 10px 30px;
+
     }
 
 }
