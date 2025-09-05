@@ -1,0 +1,207 @@
+
+.cards-section {
+	max-width: 1440px;
+	margin: 40px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.cards-section__cards-row {
+	display: flex;
+	flex-direction: row;
+	gap: 22px;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.card-section__text {
+	max-width: 900px;
+	width: 100%;
+	margin: 0 auto 40px auto;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.card-section__title {
+	font-family: 'Readex Pro', Arial, sans-serif;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 43.2px;
+	color: #000;
+	margin-bottom: 16px;
+}
+
+.card-section__desc {
+	color: rgba(0, 0, 0, 1);
+	font-family: Readex Pro;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.8px;
+	letter-spacing: 0%;
+	text-align: center;
+}
+
+.left-block {
+	width: 635px;
+	height: 814px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 5px;
+}
+
+.card--laptop {
+	width: 635px;
+	height: 472px;
+	flex: 0 0 auto;
+}
+
+.card--laptop img {
+	margin-bottom: 12vh;
+	margin-left: -5vh;
+}
+
+.card--watch {
+	max-width: 635px;
+	max-height: 270px;
+	height: 100%;
+	width: 100%;
+}
+
+.card--watch img {
+	margin-left: -20vh;
+}
+
+.right-block {
+	width: 653px;
+	height: 792px;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: center;
+	gap: 16px;
+	margin-right: 5px;
+}
+
+.card--phones {
+	max-width: 312px;
+	max-height: 792px;
+	width: 100%;
+	height: 100%;
+	flex: 0 0 auto;
+}
+
+.card--phones img {
+	margin-left: 14vh;
+	margin-bottom: 10vh;
+}
+
+.card--tablet-hand {
+	width: 312px;
+	height: 792px;
+	flex: 0 0 auto;
+}
+
+.card--tablet-hand img {
+	margin-bottom: -15vh;
+}
+
+
+.card {
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	text-decoration: none;
+	color: inherit;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.card img {
+	display: block;
+	object-fit: cover;
+}
+
+.card-text {
+	position: absolute;
+	color: #000;
+	font-family: 'Inter', Arial, sans-serif;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-text__category {
+	font-size: 16px;
+	font-weight: 400;
+	opacity: 0.7;
+	margin-bottom: 8px;
+}
+
+.card-text__title {
+	font-size: 32px;
+	font-weight: 400;
+	text-align: right;
+	line-height: 1.1;
+}
+
+.card-text--laptop {
+	bottom: 32px;
+	right: 40px;
+	align-items: flex-end;
+	margin-bottom: -30px;
+}
+
+.card-text--watch {
+	bottom: 32px;
+	right: 40px;
+	align-items: flex-end;
+	margin-bottom: 55px;
+}
+
+.card-text--phones {
+	bottom: 48px;
+	left: 32px;
+	right: auto;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 55px;
+
+}
+
+.card-text__title--phones {
+	text-align: center;
+}
+
+.card-text--tablet {
+	top: 48px;
+	right: auto;
+	align-items: center;
+	margin-top: 70px;
+}
+
+.card-text__title--tablet {
+	text-align: center;
+}

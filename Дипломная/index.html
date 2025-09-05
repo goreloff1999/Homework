@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="scroll-progress"
+        style="position:fixed;top:0;left:0;width:0;height:4px;background:#08090D;z-index:999;transition:width 0.2s;">
+    </div>
+    <div id="site-loader"
+        style="position:fixed;z-index:10000;inset:0;background:#fff;transition:opacity 1s cubic-bezier(.4,0,.2,1);opacity:1;">
+    </div>
+    <div class="container" style="opacity:0;transition:opacity 1s cubic-bezier(.4,0,.2,1);">
+        <div class="header__inner">
+            <a class="header__logo" href="#">
+                <svg viewBox="0 0 170 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="170" height="21" fill="none" aria-label="Логотип">
+                    <rect id="IMAGE" width="170.000000" height="21.000000" x="0.000000" y="0.000000" />
+                    <path id="Vector"
+                        d="M10.575 20.9428C9.06831 20.9428 7.67318 20.6857 6.38967 20.1715C5.10615 19.6381 3.98075 18.9048 3.01347 17.9714C2.06479 17.0191 1.32072 15.9047 0.781269 14.6286C0.260423 13.3524 0 11.9714 0 10.4857C0 8.98096 0.260423 7.60001 0.781269 6.34286C1.32072 5.06667 2.06479 3.96191 3.01347 3.02857C3.98075 2.09524 5.09685 1.36191 6.36177 0.828573C7.64528 0.29524 9.0311 0.028574 10.5192 0.028574C12.0817 0.028574 13.4862 0.285717 14.7325 0.800002C15.9788 1.29524 17.0764 1.99048 18.025 2.88572L14.6767 6.31429C14.2116 5.78096 13.635 5.3619 12.9468 5.05714C12.2585 4.75238 11.4494 4.6 10.5192 4.6C9.7194 4.6 8.98459 4.73333 8.31493 5.00001C7.66388 5.26667 7.09653 5.66667 6.61289 6.2C6.12924 6.71428 5.74791 7.33333 5.46888 8.05715C5.20846 8.78095 5.07825 9.59051 5.07825 10.4857C5.07825 11.3809 5.20846 12.1905 5.46888 12.9143C5.74791 13.6381 6.12924 14.2666 6.61289 14.8C7.09653 15.3142 7.66388 15.7143 8.31493 16C8.98459 16.2667 9.7194 16.4 10.5192 16.4C11.4494 16.4 12.2678 16.2572 12.9747 15.9715C13.6815 15.6667 14.2861 15.2381 14.7883 14.6857L18.1367 18.1143C17.1693 19.0095 16.0719 19.7048 14.8441 20.2C13.635 20.6952 12.212 20.9428 10.575 20.9428Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M18.3544 20.6286L26.0276 0.371429L30.8547 0.371429L38.4441 20.6286L33.2264 20.6286L27.5064 3.6L29.32 3.6L23.4606 20.6286L18.3544 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M40.2962 20.6286L40.2962 0.371429L45.2907 0.371429L45.2907 20.6286L40.2962 20.6286ZM44.2583 20.6286L44.2583 16.2286L53.801 16.2286L53.801 20.6286L44.2583 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M56.1276 20.6286L56.1276 0.371429L61.1221 0.371429L61.1221 20.6286L56.1276 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M64.6291 20.6286L64.6291 0.371429L69.6236 0.371429L69.6236 20.6286L64.6291 20.6286ZM68.5913 13.0571L68.5913 8.74286L78.385 8.74286L78.385 13.0571L68.5913 13.0571ZM68.5913 4.68571L68.5913 0.371429L78.8314 0.371429L78.8314 4.68571L68.5913 4.68571Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M90.8498 21C89.3245 21 87.9201 20.7333 86.6365 20.2C85.3531 19.6667 84.2276 18.9238 83.2604 17.9714C82.3117 17.0191 81.5676 15.9047 81.0281 14.6286C80.4887 13.3334 80.219 11.9429 80.219 10.4571C80.219 8.97143 80.4794 7.6 81.0002 6.34286C81.5397 5.06667 82.2838 3.95238 83.2325 3C84.1811 2.04761 85.2973 1.31428 86.5807 0.800002C87.8643 0.266667 89.2687 0 90.794 0C92.3194 0 93.7238 0.266667 95.0075 0.800002C96.2904 1.31428 97.4072 2.04761 98.3558 3C99.3044 3.95238 100.039 5.06667 100.56 6.34286C101.099 7.61905 101.369 9 101.369 10.4857C101.369 11.9714 101.099 13.3524 100.56 14.6286C100.039 15.9047 99.3044 17.0286 98.3558 18C97.4072 18.9524 96.2904 19.6952 95.0075 20.2285C93.7424 20.7428 92.3566 21 90.8498 21ZM90.794 16.4286C91.9101 16.4286 92.8774 16.181 93.6959 15.6858C94.5144 15.1904 95.1465 14.4952 95.5935 13.6C96.0397 12.7048 96.2632 11.6571 96.2632 10.4571C96.2632 9.58096 96.1327 8.78095 95.8725 8.05715C95.6302 7.33333 95.2676 6.71428 94.7839 6.2C94.3002 5.66667 93.7237 5.25714 93.0542 4.97143C92.3845 4.68571 91.6311 4.54286 90.794 4.54286C89.6779 4.54286 88.7106 4.79048 87.8922 5.28572C87.0737 5.7619 86.4412 6.44762 85.9948 7.34286C85.5483 8.2381 85.3252 9.2762 85.3252 10.4571C85.3252 11.3714 85.446 12.2 85.6879 12.9429C85.9482 13.6667 86.3203 14.2953 86.804 14.8286C87.2876 15.3429 87.8643 15.7428 88.5339 16.0285C89.2036 16.2952 89.957 16.4286 90.794 16.4286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M107.829 12.4286L107.829 8.77143L111.596 8.77143C112.414 8.77143 113.038 8.57143 113.465 8.17143C113.912 7.75238 114.135 7.19048 114.135 6.48572C114.135 5.8 113.912 5.24762 113.465 4.82857C113.038 4.39048 112.414 4.17143 111.596 4.17143L107.829 4.17143L107.829 0.371429L112.294 0.371429C113.633 0.371429 114.804 0.628573 115.809 1.14286C116.832 1.65715 117.632 2.36191 118.209 3.25715C118.786 4.15238 119.074 5.2 119.074 6.4C119.074 7.6 118.776 8.65714 118.181 9.57142C117.604 10.4667 116.795 11.1714 115.753 11.6857C114.711 12.181 113.493 12.4286 112.099 12.4286L107.829 12.4286ZM103.867 20.6286L103.867 0.371429L108.862 0.371429L108.862 20.6286L103.867 20.6286ZM114.582 20.6286L108.834 11.9429L113.326 10.8286L120.357 20.6286L114.582 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M121.988 20.6286L121.988 0.371429L125.475 0.371429L126.982 4.51428L126.982 20.6286L121.988 20.6286ZM135.632 20.6286L124.08 5.6L125.475 0.371429L137.055 15.4L135.632 20.6286ZM135.632 20.6286L134.348 16.3714L134.348 0.371429L139.343 0.371429L139.343 20.6286L135.632 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M142.859 20.6286L142.859 0.371429L147.854 0.371429L147.854 20.6286L142.859 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                    <path id="Vector"
+                        d="M149.91 20.6286L157.583 0.371429L162.41 0.371429L170 20.6286L164.783 20.6286L159.062 3.6L160.876 3.6L155.017 20.6286L149.91 20.6286Z"
+                        fill="rgb(0,0,0)" fill-rule="nonzero" />
+                </svg>
+            </a>
+            <nav class="nav">
+                <a class="nav__link" href="#">all products</a>
+                <div class="nav__dropdown">
+                    <a class="nav__link nav__link--dropdown" href="#">Solutions
+                        <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="8" fill="none"
+                            style="vertical-align: middle; margin-left: 4px;">
+                            <rect id="IMAGE" width="12" height="8" x="0" y="0" />
+                            <path id="Vector" d="M11 1L6 6L1 1" fill-rule="nonzero" stroke="rgb(7,8,71)"
+                                stroke-width="1.5" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item">•</div>
+                        <div class="dropdown-item">•</div>
+                        <div class="dropdown-item">•</div>
+                        <div class="dropdown-item">•</div>
+                    </div>
+                </div>
+                <a class="nav__link" href="#">ABOUT</a>
+                <a class="nav__link" href="#">Support</a>
+            </nav>
+            <div class="header__buttons">
+                <button class="header__button header__button--search" type="button" aria-label="Поиск">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" fill="none">
+                        <rect id="IMAGE" width="24.000000" height="24.000000" x="0.000000" y="0.000000" />
+                        <path id="Vector"
+                            d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
+                            fill-rule="nonzero" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                        <path id="Vector" d="M20.9999 20.9999L16.6499 16.6499" fill-rule="nonzero" stroke="rgb(0,0,0)"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                    </svg>
+                </button>
+                <button class="header__button header__button--cart" type="button" aria-label="Корзина">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" fill="none">
+                        <rect id="IMAGE" width="24.000000" height="24.000000" x="0.000000" y="0.000000" />
+                        <path id="Vector"
+                            d="M10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22C9.55228 22 10 21.5523 10 21Z"
+                            fill-rule="nonzero" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                        <path id="Vector"
+                            d="M21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22C20.5523 22 21 21.5523 21 21Z"
+                            fill-rule="nonzero" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                        <path id="Vector"
+                            d="M1 1L5 1L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16L19.4 16C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6L6 6"
+                            fill-rule="nonzero" stroke="rgb(0,0,0)" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <button class="header__burger" aria-label="Открыть меню"><span></span></button>
+        <nav class="mobile-nav">
+            <div class="mobile-nav__list">
+                <a class="mobile-nav__link" href="#">all products</a>
+                <a class="mobile-nav__link mobile-nav__link--dropdown" href="#" id="mobile-solutions-link">
+                    Solutions
+                    <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg" width="12" height="8" fill="none"
+                        style="vertical-align: middle; margin-left: 4px; transition: transform 0.3s;">
+                        <rect width="12" height="8" x="0" y="0" />
+                        <path d="M11 1L6 6L1 1" fill-rule="nonzero" stroke="rgb(7,8,71)" stroke-width="1.5" />
+                    </svg>
+                </a>
+                <div class="mobile-dropdown-menu" id="mobile-solutions-dropdown" style="display: none;">
+                    <div class="dropdown-item">•</div>
+                    <div class="dropdown-item">•</div>
+                    <div class="dropdown-item">•</div>
+                    <div class="dropdown-item">•</div>
+                </div>
+                <a class="mobile-nav__link" href="#">ABOUT</a>
+                <a class="mobile-nav__link" href="#">Support</a>
+            </div>
+        </nav>
+        <section class="welcome">
+            <div class="container">
+                <div class="welcome__slider">
+                    <button class="welcome__arrow welcome__arrow--left" type="button" aria-label="Предыдущий слайд">
+                        <svg viewBox="0 0 14 26" xmlns="http://www.w3.org/2000/svg" width="14" height="26" fill="none">
+                            <rect width="14" height="26" x="0" y="0" />
+                            <path d="M13 25L1 13L13 1" fill-rule="nonzero" stroke="#08090D" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="welcome__slides">
+                        <div class="welcome__slide welcome__slide--active">
+                            <div class="welcome__content">
+                                <h1 class="welcome__title">The new phones are<br>here take a look.</h1>
+                                <div class="welcome__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</div>
+                                <button class="welcome__btn">Explore</button>
+                            </div>
+                            <div class="welcome__img">
+
+                                <img src="img/iphone.svg" alt="iPhone" />
+                            </div>
+                        </div>
+                        <div class="welcome__slide">
+                            <div class="welcome__content">
+                                <h1 class="welcome__title">The new phones are<br>here take a look.</h1>
+                                <div class="welcome__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</div>
+                                <button class="welcome__btn">Explore</button>
+                            </div>
+                            <div class="welcome__img">
+                                <img src="img/iphone.svg" alt="iPhone" />
+                            </div>
+                        </div>
+                        <div class="welcome__slide">
+                            <div class="welcome__content">
+                                <h1 class="welcome__title">The new phones are<br>here take a look.</h1>
+                                <div class="welcome__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Scelerisque in est dui, aliquam, tempor. Faucibus morbi turpis.</div>
+                                <button class="welcome__btn">Explore</button>
+                            </div>
+                            <div class="welcome__img">
+                                <img src="img/iphone.svg" alt="iPhone" />
+                            </div>
+                        </div>
+                    </div>
+                    <button class="welcome__arrow welcome__arrow--right" type="button" aria-label="Следующий слайд">
+                        <svg viewBox="0 0 14 26" xmlns="http://www.w3.org/2000/svg" width="14" height="26" fill="none">
+                            <rect width="14" height="26" x="0" y="0" />
+                            <path d="M1 1L13 13L1 25" fill-rule="nonzero" stroke="#08090D" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <div class="welcome__dots">
+                        <div class="welcome__dot welcome__dot--active"></div>
+                        <div class="welcome__dot"></div>
+                        <div class="welcome__dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cards-section">
+            <div class="container">
+                <div class="card-section__text">
+                    <h2 class="card-section__title">Shop our latest offers and categories</h2>
+                    <div class="card-section__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque
+                        in est dui, aliquam,<br> tempor. Faucibus morbi turpis. Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit.</div>
+                </div>
+                <section class="cards-section__cards-row">
+                    <div class="left-block">
+                        <a href="#" class="card card--laptop">
+                            <img src="img/laptop.svg" alt="laptop image" />
+                            <div class="card-text card-text--laptop">
+                                <span class="card-text__category">Laptops</span>
+                                <span class="card-text__title">True Laptop<br>Solution</span>
+                            </div>
+                        </a>
+                        <a href="#" class="card card--watch">
+                            <img src="img/watch_band.svg" alt="watch band image" />
+                            <div class="card-text card-text--watch">
+                                <span class="card-text__category">Watch</span>
+                                <span class="card-text__title">Not just<br>stylish</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="right-block">
+                        <a href="#" class="card card--phones">
+                            <img src="img/two_phones.svg" alt="two phones image" />
+                            <div class="card-text card-text--phones">
+                                <span class="card-text__category">Phones</span>
+                                <span class="card-text__title card-text__title--phones">Your day to day<br>life</span>
+                            </div>
+                        </a>
+                        <a href="#" class="card card--tablet-hand">
+                            <img src="img/Hand_with_tablet.svg" alt="hand with tablet image" />
+                            <div class="card-text card-text--tablet">
+                                <span class="card-text__category">Tablet</span>
+                                <span class="card-text__title card-text__title--tablet">Empower your<br>work</span>
+                            </div>
+                        </a>
+                    </div>
+            </div>
+        </section>
+        <section class="items">
+            <div class="items__inner">
+                <div class="title__text">
+                    <div class="items__text-title">
+                        <h1>Save on our most selled items.</h1>
+                    </div>
+                    <div class="items__text-subtitle">
+                        <span>Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</span>
+                    </div>
+                </div>
+                <div class="items__type">
+                    <a href="#" class="items__type__card">
+                        <div class="items__type__card-img">
+                            <img src="img/MacBook Pro 13.svg" alt="laptop">
+                        </div>
+                        <div class="items__type__card-text">
+                            <h3 class="items__type__card-text--title">MacBook Pro 13</h3>
+                            <div class="items__type__card-text--subtitle">Neque porro quisquam est qui dolorem ipsum
+                                quia dolor sit amet</div>
+                            <div class="items__type__card-text--price">$ 1,200.00 USD</div>
+                        </div>
+                    </a>
+                    <a href="#" class="items__type__card">
+                        <div class="items__type__card-img">
+                            <img src="img/Smart Galaxy Watch 3.svg" alt="Smart Galaxy Watch 3">
+                        </div>
+                        <div class="items__type__card-text">
+                            <h3 class="items__type__card-text--title">Smart Galaxy Watch 3</h3>
+                            <div class="items__type__card-text--subtitle">Neque porro quisquam est qui dolorem ipsum
+                                quia dolor sit amet, consectetur, adipisci velit...</div>
+                            <div class="items__type__card-text--price">$ 199.00 USD</div>
+                        </div>
+                    </a>
+                    <a href="#" class="items__type__card">
+                        <div class="items__type__card-img">
+                            <img src="img/MacBook Air M1.svg" alt="laptop">
+                        </div>
+                        <div class="items__type__card-text">
+                            <h3 class="items__type__card-text--title">MacBook Air M1</h3>
+                            <div class="items__type__card-text--subtitle">Neque porro quisquam est qui dolorem ipsum
+                                quia dolor sit amet, consectetur, adipisci velit...</div>
+                            <div class="items__type__card-text--price">$ 1,009.00 USD</div>
+                        </div>
+                    </a>
+                    <a href="#" class="items__type__card">
+                        <div class="items__type__card-img">
+                            <img src="img/Ipad.svg" alt="iPad">
+                        </div>
+                        <div class="items__type__card-text">
+                            <h3 class="items__type__card-text--title">iPad</h3>
+                            <div class="items__type__card-text--subtitle">Neque porro quisquam est qui dolorem ipsum
+                                quia dolor sit amet, consectetur, adipisci velit...</div>
+                            <div class="items__type__card-text--price">$ 610.00 USD</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <section class="best">
+            <div class="container">
+                <div class="best__inner">
+                    <div class="title__text">
+                        <div class="best__text-title">
+                            <h1>See the best around here</h1>
+                        </div>
+                        <div class="best__text-subtitle">
+                            <span>Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</span>
+                        </div>
+                    </div>
+                    <div class="best__type">
+                        <a class="best__type__card" href="#">
+                            <div class="best__type__text">
+                                <span class="best__type__text-subtitle">Smart light bulb pack</span>
+                                <h2 class="best__type__text-title">Latest and gratest</h2>
+                            </div>
+                            <button class="welcome__btn welcome__btn--best">Explore</button>
+                            <div class="best__type__img">
+                                <img src="img/two_watches.svg" alt="Smart light bulb pack">
+                            </div>
+                        </a>
+                        <a class="best__type__card" href="#">
+                            <div class="best__type__text">
+                                <span class="best__type__text-subtitle">Smart light bulb pack</span>
+                                <h2 class="best__type__text-title">Best selling</h2>
+                            </div>
+                            <button class="welcome__btn welcome__btn--best">Explore</button>
+                            <div class="best__type__img">
+                                <img src="img/Best selling.svg" alt="Best selling">
+                            </div>
+                        </a>
+                        <a class="best__type__card" href="#">
+                            <div class="best__type__text">
+                                <span class="best__type__text-subtitle">Smart light bulb pack</span>
+                                <h2 class="best__type__text-title">Every product</h2>
+                            </div>
+                            <button class="welcome__btn welcome__btn--best">Explore</button>
+                            <div class="best__type__img">
+                                <img src="img/Every product.svg" alt="Smart light bulb pack">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ideas">
+            <div class="container">
+                <div class="ideas__inner">
+                    <div class="title__text">
+                        <div class="best__text-title">
+                            <h1>Ideas have a place here</h1>
+                        </div>
+                        <div class="best__text-subtitle">
+                            <span>Our new Limited Edition Winter Design BESPOKE 4-Door Flex™</span>
+                        </div>
+                    </div>
+                    <div class="ideas__album">
+                        <div class="ideas__album-img">
+                            <img src="img/book.svg" alt="book">
+                        </div>
+                        <div class="ideas__album-text">
+                            <ul>
+                                <li>We Make It Easy To Find The Great Design Talent, Easier...</li>
+                                <li>Road Design Handbook For The International Road...</li>
+                                <li>The Best Kept Secrets About Creative People</li>
+                                <li>We Make It Easy To Find The Great Design Talent, Easier...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a class="ideas__seeall" href="#">
+                        <span class="ideas__seeall-text">See All</span>
+                        <button class="ideas__seeall-img">
+                            <svg viewBox="0 0 22 21" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="22.000000" height="21.000000"
+                                fill="none">
+                                <rect id="IMAGE" width="22.000000" height="21.000000" x="0.000000" y="0.000000" />
+                                <path id="Vector" d="M1.69226 19.3845L20.3076 1.61523" fill-rule="nonzero"
+                                    stroke="rgb(8,9,13)" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <path id="Vector" d="M1.69226 1.61523L20.3076 1.61523L20.3076 19.3845"
+                                    fill-rule="nonzero" stroke="rgb(8,9,13)" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="search">
+            <div class="container">
+                <div class="search__inner">
+                    <div class="search__title">
+                        <h1>Looking for anything else?</h1>
+                    </div>
+                    <div class="search-tape">
+                        <img class="icon" src="img/icons/scope.svg" alt="Search">
+                        <input type="text" id="searchInput" placeholder="Search keyword">
+                    </div>
+                    <div class="search-chips">
+                        <div class="chip">iPhone</div>
+                        <div class="chip">Charger</div>
+                        <div class="chip">Gift</div>
+                        <div class="chip">Google Pixel 3</div>
+                        <div class="chip">Keyboard</div>
+                        <div class="chip">13 Pro Max</div>
+                        <div class="chip">iPhone 12</div>
+                        <div class="chip">Laptop</div>
+                        <div class="chip">Mobile</div>
+                    </div>
+                    <div class="search__signup">
+                        <div class="search__signup-title">
+                            <h1>Never miss a thing</h1>
+                        </div>
+                        <div class="search__signup-subtitle">
+                            <span>Sign up for texts to be notified about our best offers on the perfect gifts.</span>
+                        </div>
+                        <div class="search__signup-img">
+                            <img src="img/Never miss a thing.svg" alt="Подписка на новости">
+                        </div>
+                        <form class="search__signup-form">
+                            <input type="email" placeholder="Your email" required>
+                            <button type="submit">Sign up</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__column footer__column--brand">
+                    <a class="footer__logo" href="#">
+                        <svg viewBox="0 0 170 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="170" height="21" fill="none" aria-label="Логотип">
+                            <rect id="IMAGE" width="170.000000" height="21.000000" x="0.000000" y="0.000000" />
+                            <path id="Vector"
+                                d="M10.575 20.9428C9.06831 20.9428 7.67318 20.6857 6.38967 20.1715C5.10615 19.6381 3.98075 18.9048 3.01347 17.9714C2.06479 17.0191 1.32072 15.9047 0.781269 14.6286C0.260423 13.3524 0 11.9714 0 10.4857C0 8.98096 0.260423 7.60001 0.781269 6.34286C1.32072 5.06667 2.06479 3.96191 3.01347 3.02857C3.98075 2.09524 5.09685 1.36191 6.36177 0.828573C7.64528 0.29524 9.0311 0.028574 10.5192 0.028574C12.0817 0.028574 13.4862 0.285717 14.7325 0.800002C15.9788 1.29524 17.0764 1.99048 18.025 2.88572L14.6767 6.31429C14.2116 5.78096 13.635 5.3619 12.9468 5.05714C12.2585 4.75238 11.4494 4.6 10.5192 4.6C9.7194 4.6 8.98459 4.73333 8.31493 5.00001C7.66388 5.26667 7.09653 5.66667 6.61289 6.2C6.12924 6.71428 5.74791 7.33333 5.46888 8.05715C5.20846 8.78095 5.07825 9.59051 5.07825 10.4857C5.07825 11.3809 5.20846 12.1905 5.46888 12.9143C5.74791 13.6381 6.12924 14.2666 6.61289 14.8C7.09653 15.3142 7.66388 15.7143 8.31493 16C8.98459 16.2667 9.7194 16.4 10.5192 16.4C11.4494 16.4 12.2678 16.2572 12.9747 15.9715C13.6815 15.6667 14.2861 15.2381 14.7883 14.6857L18.1367 18.1143C17.1693 19.0095 16.0719 19.7048 14.8441 20.2C13.635 20.6952 12.212 20.9428 10.575 20.9428Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M18.3544 20.6286L26.0276 0.371429L30.8547 0.371429L38.4441 20.6286L33.2264 20.6286L27.5064 3.6L29.32 3.6L23.4606 20.6286L18.3544 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M40.2962 20.6286L40.2962 0.371429L45.2907 0.371429L45.2907 20.6286L40.2962 20.6286ZM44.2583 20.6286L44.2583 16.2286L53.801 16.2286L53.801 20.6286L44.2583 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M56.1276 20.6286L56.1276 0.371429L61.1221 0.371429L61.1221 20.6286L56.1276 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M64.6291 20.6286L64.6291 0.371429L69.6236 0.371429L69.6236 20.6286L64.6291 20.6286ZM68.5913 13.0571L68.5913 8.74286L78.385 8.74286L78.385 13.0571L68.5913 13.0571ZM68.5913 4.68571L68.5913 0.371429L78.8314 0.371429L78.8314 4.68571L68.5913 4.68571Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M90.8498 21C89.3245 21 87.9201 20.7333 86.6365 20.2C85.3531 19.6667 84.2276 18.9238 83.2604 17.9714C82.3117 17.0191 81.5676 15.9047 81.0281 14.6286C80.4887 13.3334 80.219 11.9429 80.219 10.4571C80.219 8.97143 80.4794 7.6 81.0002 6.34286C81.5397 5.06667 82.2838 3.95238 83.2325 3C84.1811 2.04761 85.2973 1.31428 86.5807 0.800002C87.8643 0.266667 89.2687 0 90.794 0C92.3194 0 93.7238 0.266667 95.0075 0.800002C96.2904 1.31428 97.4072 2.04761 98.3558 3C99.3044 3.95238 100.039 5.06667 100.56 6.34286C101.099 7.61905 101.369 9 101.369 10.4857C101.369 11.9714 101.099 13.3524 100.56 14.6286C100.039 15.9047 99.3044 17.0286 98.3558 18C97.4072 18.9524 96.2904 19.6952 95.0075 20.2285C93.7424 20.7428 92.3566 21 90.8498 21ZM90.794 16.4286C91.9101 16.4286 92.8774 16.181 93.6959 15.6858C94.5144 15.1904 95.1465 14.4952 95.5935 13.6C96.0397 12.7048 96.2632 11.6571 96.2632 10.4571C96.2632 9.58096 96.1327 8.78095 95.8725 8.05715C95.6302 7.33333 95.2676 6.71428 94.7839 6.2C94.3002 5.66667 93.7237 5.25714 93.0542 4.97143C92.3845 4.68571 91.6311 4.54286 90.794 4.54286C89.6779 4.54286 88.7106 4.79048 87.8922 5.28572C87.0737 5.7619 86.4412 6.44762 85.9948 7.34286C85.5483 8.2381 85.3252 9.2762 85.3252 10.4571C85.3252 11.3714 85.446 12.2 85.6879 12.9429C85.9482 13.6667 86.3203 14.2953 86.804 14.8286C87.2876 15.3429 87.8643 15.7428 88.5339 16.0285C89.2036 16.2952 89.957 16.4286 90.794 16.4286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M107.829 12.4286L107.829 8.77143L111.596 8.77143C112.414 8.77143 113.038 8.57143 113.465 8.17143C113.912 7.75238 114.135 7.19048 114.135 6.48572C114.135 5.8 113.912 5.24762 113.465 4.82857C113.038 4.39048 112.414 4.17143 111.596 4.17143L107.829 4.17143L107.829 0.371429L112.294 0.371429C113.633 0.371429 114.804 0.628573 115.809 1.14286C116.832 1.65715 117.632 2.36191 118.209 3.25715C118.786 4.15238 119.074 5.2 119.074 6.4C119.074 7.6 118.776 8.65714 118.181 9.57142C117.604 10.4667 116.795 11.1714 115.753 11.6857C114.711 12.181 113.493 12.4286 112.099 12.4286L107.829 12.4286ZM103.867 20.6286L103.867 0.371429L108.862 0.371429L108.862 20.6286L103.867 20.6286ZM114.582 20.6286L108.834 11.9429L113.326 10.8286L120.357 20.6286L114.582 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M121.988 20.6286L121.988 0.371429L125.475 0.371429L126.982 4.51428L126.982 20.6286L121.988 20.6286ZM135.632 20.6286L124.08 5.6L125.475 0.371429L137.055 15.4L135.632 20.6286ZM135.632 20.6286L134.348 16.3714L134.348 0.371429L139.343 0.371429L139.343 20.6286L135.632 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M142.859 20.6286L142.859 0.371429L147.854 0.371429L147.854 20.6286L142.859 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                            <path id="Vector"
+                                d="M149.91 20.6286L157.583 0.371429L162.41 0.371429L170 20.6286L164.783 20.6286L159.062 3.6L160.876 3.6L155.017 20.6286L149.91 20.6286Z"
+                                fill="rgb(0,0,0)" fill-rule="nonzero" />
+                        </svg>
+                    </a>
+                    <p class="footer__desc">Sign up for texts to be notified about <br>our best offers on the perfect gifts.</p>
+                </div>
+                <div class="footer__columns-group">
+                    <div class="footer__column">
+                        <h3 class="footer__title">All products</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Phones</a></li>
+                            <li><a href="#" class="footer__link">Watch</a></li>
+                            <li><a href="#" class="footer__link">Tablet</a></li>
+                            <li><a href="#" class="footer__link">Laptops</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3 class="footer__title">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">About</a></li>
+                            <li><a href="#" class="footer__link">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3 class="footer__title">Support</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Style Guide</a></li>
+                            <li><a href="#" class="footer__link">Licensing</a></li>
+                            <li><a href="#" class="footer__link">Change Log</a></li>
+                            <li><a href="#" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h3 class="footer__title">Follow Us</h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link">Instagram</a></li>
+                            <li><a href="#" class="footer__link">Facebook</a></li>
+                            <li><a href="#" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#" class="footer__link">Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

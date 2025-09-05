@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Readex Pro';
+    src: local('Readex Pro Regular'), local('ReadexPro-Regular'),
+        url('ReadexPro-Regular.woff2') format('woff2'),
+        url('ReadexPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Readex Pro';
+    src: local('Readex Pro Medium'), local('ReadexPro-Medium'),
+        url('ReadexPro-Medium.woff2') format('woff2'),
+        url('ReadexPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 18pt';
+    src: local('Inter 18pt Medium'), local('Inter18pt-Medium'),
+        url('Inter18pt-Medium.woff2') format('woff2'),
+        url('Inter18pt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 28pt';
+    src: local('Inter 28pt Regular'), local('Inter28pt-Regular'),
+        url('Inter28pt-Regular.woff2') format('woff2'),
+        url('Inter28pt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 24pt';
+    src: local('Inter 24pt Medium'), local('Inter24pt-Medium'),
+        url('Inter24pt-Medium.woff2') format('woff2'),
+        url('Inter24pt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 28pt';
+    src: local('Inter 28pt Medium'), local('Inter28pt-Medium'),
+        url('Inter28pt-Medium.woff2') format('woff2'),
+        url('Inter28pt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 24pt';
+    src: local('Inter 24pt Regular'), local('Inter24pt-Regular'),
+        url('Inter24pt-Regular.woff2') format('woff2'),
+        url('Inter24pt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 18pt';
+    src: local('Inter 18pt Regular'), local('Inter18pt-Regular'),
+        url('Inter18pt-Regular.woff2') format('woff2'),
+        url('Inter18pt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

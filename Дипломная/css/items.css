@@ -1,0 +1,80 @@
+.items__inner {
+	max-height: 663px;
+	height: 100%;
+	margin-top: 78px;
+}
+
+.title__text {
+	align-items: center;
+	margin-bottom: 31px;
+	max-height: 154px;
+	height: 100%;
+	margin-bottom: 56px;
+}
+
+.items__text-title {
+	font-family: Readex Pro;
+	font-size: 42px;
+	font-weight: 400;
+	line-height: 52.5px;
+	text-align: center;
+	margin-bottom: 9px;
+}
+
+.items__text-subtitle {
+	font-family: Readex Pro;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 16.8px;
+	text-align: center;
+
+}
+
+.items__type {
+	display: flex;
+	height: auto;
+	justify-content: center;
+}
+
+.items__type__card {
+	max-width: 302.5px;
+	width: 100%;
+	max-height: 121px;
+	height: auto;
+	margin-right: 7px;
+	transition: transform 0.24s
+}
+
+.items__type__card:hover,
+.items__type__card:focus,
+.items__type__card:focus-visible {
+	transform: translateY(-6px);
+
+}
+
+.items__type__card-text--title {
+	font-family: Readex Pro;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 27.5px;
+	text-align: left;
+	margin-bottom: 1vh;
+}
+
+.items__type__card-text--subtitle {
+	color: #4b4b4b;
+	font-family: Inter;
+	font-size: 14px;
+	line-height: 16.8px;
+	text-align: left;
+	margin-bottom: 2vh;
+	max-width: 261px;
+	width: 100%;
+}
+
+.items__type__card-text--price {
+	font-family: Inter;
+	font-size: 18px;
+	line-height: 21.6px;
+	text-align: left;
+}
